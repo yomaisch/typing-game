@@ -14,7 +14,8 @@ import (
 func main() {
 	var (
 		ch_rcv = myInput(os.Stdin)
-		t      = 1 // タイムリミット
+		t      = 1                                          // タイムリミット
+		tl     = time.After(time.Duration(t) * time.Minute) //制限時間処理
 		n      = 0
 	)
 
@@ -29,15 +30,15 @@ func main() {
 		fmt.Println(q)
 
 		select {
-		case <-time.After(time.Duration(t) * time.Minute): // タイムアウト処理
+		case <-tl: // 制限時間が来た時の処理
 			fmt.Println("Finished!" + " Your score is " + strconv.Itoa(n) + " points! Good job:)")
 			i = false
 		case x := <-ch_rcv:
 			if x == q {
-				fmt.Println("nice")
+				fmt.Println("OK!")
 				n += 1
 			} else {
-				fmt.Println("incorrect :(")
+				fmt.Println("NG :(")
 			}
 		}
 	}
