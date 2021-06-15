@@ -15,14 +15,14 @@ func main() {
 	var (
 		ch_rcv = myInput(os.Stdin)
 		t      = 1                                          // タイムリミット
-		tl     = time.After(time.Duration(t) * time.Minute) //制限時間処理
+		tl     = time.After(time.Duration(t) * time.Minute) // 制限時間処理
 		n      = 0
 	)
 
 	babbler := babble.NewBabbler()
 	babbler.Count = 1
 
-	fmt.Println("Start the typing game." + " Time limit is " + strconv.Itoa(t) + " minutes." + " Yay, start!")
+	fmt.Println("Start the typing game." + " Time limit is " + strconv.Itoa(t) + " second." + " Yay, start!")
 
 	for i := true; i; {
 		// 英文字をランダムに生成
