@@ -26,3 +26,7 @@ go get github.com/tjarratt/babble
 ```bash
 go run main.go
 ```
+
+# License
+
+MIT License. See LICENSE for more information.
