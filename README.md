@@ -1,4 +1,4 @@
-# typing-game
+# Typing Game
 
 As a part of learning golang, I created a typing game.
 I hope you will enjoy playing it.
