@@ -24,7 +24,8 @@ func main() {
 
 	fmt.Println("Start the typing game." + " Time limit is " + strconv.Itoa(t) + " second." + " Yay, start!")
 
-	for i := true; i; {
+OuterLoop:
+	for {
 		// 英文字をランダムに生成
 		q := babbler.Babble()
 		fmt.Println(q)
@@ -32,7 +33,7 @@ func main() {
 		select {
 		case <-tl: // 制限時間が来た時の処理
 			fmt.Println("Finished!" + " Your score is " + strconv.Itoa(n) + " points! Good job:)")
-			i = false
+			break OuterLoop
 		case x := <-ch_rcv:
 			if x == q {
 				fmt.Println("OK!")
